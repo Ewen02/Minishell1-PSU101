@@ -15,7 +15,6 @@ static char **anti_backslach2(char **str, int i, int j)
     return str;
 }
 
-
 static char **anti_backslach(char **str)
 {
     for (int i = 0; str[i]; i++)
