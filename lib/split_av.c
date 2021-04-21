@@ -8,14 +8,21 @@
 #include "../include/my_src.h"
 #include <string.h>
 
-char **split_av(char *str)
+static int count(char *str)
 {
-    char **av;
-    int str_nb = 1;
+    int count_nb = 1;
 
     for (int i = 0; str[i]; i++)
         if (str[i] == ' ')
-            str_nb++;
+            count_nb++;
+    return count_nb;
+}
+
+char **split_av(char *str)
+{
+    char **av;
+    int str_nb = count(str);
+
     av = malloc(sizeof(char *) * str_nb + 1);
     av[0] = malloc(sizeof(char) * strlen(str));
     for (int i = 0, j = 1, str_size = 0; str[i] != '\0'; i++) {
