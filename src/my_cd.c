@@ -5,7 +5,7 @@
 ** //
 */
 
-#include "../include/my_src.h"
+#include "my_src.h"
 
 void my_cd(void)
 {

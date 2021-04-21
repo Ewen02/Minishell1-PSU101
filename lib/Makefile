@@ -19,11 +19,12 @@ SRC =	my_str.c	\
 		my_strdup.c
 
 OBJ = 	$(SRC:.c=.o)
+
 NAME = 	libmy.a
 
 all:	$(NAME)
 
-$(NAME):	$(OBJ)
+$(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	rm -f $(OBJ)
 

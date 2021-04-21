@@ -6,7 +6,7 @@
 */
 
 #define _GNU_SOURCE
-#include "../../include/my_src.h"
+#include "my_src.h"
 
 void diff_bin_cmd(env_t *envi, char *buffer)
 {
@@ -18,9 +18,8 @@ void diff_bin_cmd(env_t *envi, char *buffer)
 
     if (enviro == 0)
         my_env(envi);
-    else if (setenv == 0) {
+    else if (setenv == 0)
         my_setenv(envi, str1);
-    }
     else if (exi == 0)
         exit(0);
     else {

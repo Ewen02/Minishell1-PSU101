@@ -5,9 +5,9 @@
 ** //
 */
 
-#include "../../include/my_src.h"
+#include "my_src.h"
 
-char *good_line(char **env)
+static char *good_line(char **env)
 {
     char *path = "PATH";
     char *copy = malloc(sizeof(char) * 1000);
@@ -19,7 +19,7 @@ char *good_line(char **env)
     return copy;
 }
 
-char **good_words(char *word)
+static char **good_words(char *word)
 {
     char **copy = malloc(sizeof(char *) * my_strlen(word));
 

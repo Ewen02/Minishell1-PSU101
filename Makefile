@@ -22,6 +22,12 @@ SRC =	src/main.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
+INCLUDE = -I ./include/
+
+LDFLAGS = -L ./lib/ -lmy -lncurses
+
+CFLAGS = -Wall -Wextra $(INCLUDE)
+
 NAME	= mysh
 
 all:	$(NAME)
@@ -29,7 +35,7 @@ all:	$(NAME)
 $(NAME): $(OBJ)
 	make -C lib/
 	rm -f $(OBJ)
-	gcc -g -o $(NAME) $(SRC) -L lib/ -lmy
+	gcc -o $(NAME) $(SRC) $(LDFLAGS) $(CFLAGS)
 
 clean:
 	make fclean -C lib

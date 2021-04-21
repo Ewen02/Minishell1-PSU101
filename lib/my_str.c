@@ -38,9 +38,8 @@ char *my_strcat(char *str1, char *str2)
     char *result;
     result = malloc(sizeof(char) * (my_strlen(str1) + (my_strlen(str2))) + 10);
 
-    for (int j = 0 ; i < size && str1[j] != '\0'; i++, j++) {
+    for (int j = 0 ; i < size && str1[j] != '\0'; i++, j++)
         result[i] = str1[j];
-    }
     for (int j = 0; i < size && str2[j] != '\0'; i++, j++) {
         result[i] = str2[j];
         result[i + 1] = '\0';
@@ -51,6 +50,7 @@ char *my_strcat(char *str1, char *str2)
 int my_strcmp(char  const *s1 , char  const *s2)
 {
     int i = 0;
+
     while ((s1[i] == s2[i]) && (s1[i] != '\0') && (s2[i] != '\0'))
         i++;
     return (s1[i] - s2[i]);

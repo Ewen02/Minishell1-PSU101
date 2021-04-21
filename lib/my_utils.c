@@ -34,6 +34,7 @@ int my_getnbr(char *str)
 char *int_to_str(int nb, int pos, char *str)
 {
     int result = 0;
+
     if (nb >= 0 && nb <= 9)
         str[pos] = ('0' + nb);
     if (nb > 9 || nb * -1 > 9){
@@ -48,6 +49,7 @@ char *my_revstr(char *str)
 {
     int size = 0;
     char t = ':';
+
     for (int i = 0; str[i] != '\0'; i++)
         size++;
     for (int i = 0; i < size; i++){
@@ -62,6 +64,7 @@ char *my_revstr(char *str)
 char *my_itoa(int number)
 {
     char *str = malloc(sizeof(char) * 12);
+
     for (int i = 0; i < 12; i++)
         str[i] = '\0';
     int_to_str(number, 0, str);

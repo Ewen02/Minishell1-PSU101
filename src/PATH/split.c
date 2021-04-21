@@ -5,7 +5,7 @@
 ** task_04
 */
 
-#include "../../include/my_src.h"
+#include "my_src.h"
 
 char **split(char *str)
 {

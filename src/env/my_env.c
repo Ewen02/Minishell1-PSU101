@@ -5,15 +5,7 @@
 ** //
 */
 
-#include "../../include/my_src.h"
-
-static int my_tabcount(char **env)
-{
-    int size = 0;
-
-    for (int i = 0; env[i] != NULL; i++, size++);
-    return (size);
-}
+#include "my_src.h"
 
 char **my_env(env_t *envi)
 {

@@ -6,10 +6,20 @@
 */
 
 #define _GNU_SOURCE
-#include "../include/my_src.h"
+#include "my_src.h"
+
+static int check_error(int ac)
+{
+    if (ac != 1)
+        return 84;
+    return 0;
+}
 
 int main(int ac, char **av, char **env)
 {
-    new_shell(env);
+    if (check_error(ac) != 0)
+        return 84;
+    if (new_shell(env) != 0)
+        return 84;
     return 0;
 }

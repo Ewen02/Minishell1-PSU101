@@ -5,12 +5,12 @@
 ** //
 */
 
-#include "../../include/my_src.h"
+#include "my_src.h"
 
 int my_tablen(char **env)
 {
     int size = 0;
 
-    for (int i = 0; env[i] != NULL; i++, size++);
+    for (int i = 0; env[i]; i++, size++);
     return (size);
 }
