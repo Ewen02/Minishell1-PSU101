@@ -29,7 +29,7 @@ all:	$(NAME)
 $(NAME): $(OBJ)
 	make -C lib/
 	rm -f $(OBJ)
-	gcc -o $(NAME) $(SRC) -L lib/ -lmy
+	gcc -g -o $(NAME) $(SRC) -L lib/ -lmy
 
 clean:
 	make fclean -C lib

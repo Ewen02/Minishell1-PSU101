@@ -15,16 +15,8 @@ static int my_tabcount(char **env)
     return (size);
 }
 
-char **my_env(char **env)
+char **my_env(env_t *envi)
 {
-    int size = my_tabcount(env);
-    char **tab;
-
-    tab =  malloc(sizeof(char *) * (size + 1));
-    for (int i = 0; env[i] != NULL; i++) {
-        tab[i] = my_strdup(env[i]);
-    }
-    tab[size] = NULL;
-    my_printf("%t", tab);
-    return (tab);
+    my_printf("%t", envi->tab);
+    return (envi->tab);
 }

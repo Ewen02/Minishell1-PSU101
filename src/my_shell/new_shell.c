@@ -28,16 +28,18 @@ static char *cpy2(char **str)
 
 int new_shell(char **env)
 {
-    char *buffer;
+    env_t envi = {0};
+    envi.tab = env;
+    char *buffer = NULL;
     size_t bufsize = 32;
-    buffer = (char *)malloc(bufsize * sizeof(char));
 
+    buffer = (char *)malloc(bufsize * sizeof(char));
     while (1) {
         my_printf("ewen@ewen-pc$>");
         if (getline(&buffer, &bufsize, stdin) == -1)
             return 0;
         else {
-            diff_bin_cmd(env, buffer);
+            diff_bin_cmd(&envi, buffer);
         }
     }
 }

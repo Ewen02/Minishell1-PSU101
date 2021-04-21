@@ -26,10 +26,16 @@
 
 #pragma once
 
+typedef struct env_s
+{
+    char **tab;
+}env_t;
+
+
 void my_exit(void);
-char **my_env(char **envp);
+char **my_env(env_t *envi);
 void my_unsetenv(void);
-void my_setenv(char **env);
+void my_setenv(env_t *envi, char **str);
 char *my_strdup(char const *src);
 char **my_malloc(char **env);
 int my_tablen(char **env);
@@ -41,4 +47,4 @@ void check_command(char **env, char **buffer);
 char **split_getlin(char *str);
 char **split_av(char *str);
 int new_shell(char **env);
-void diff_bin_cmd(char **env, char *buffer);
+void diff_bin_cmd(env_t *envi, char *buffer);

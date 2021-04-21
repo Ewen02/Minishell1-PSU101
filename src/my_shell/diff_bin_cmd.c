@@ -8,21 +8,22 @@
 #define _GNU_SOURCE
 #include "../../include/my_src.h"
 
-void diff_bin_cmd(char **env, char *buffer)
+void diff_bin_cmd(env_t *envi, char *buffer)
 {
-    char **str1 = NULL;
-    int enviro = my_strcmp(buffer, "env\n");
-    int exi = my_strcmp(buffer, "exit\n");
-    int setenv = my_strcmp(buffer, "setenv\n");
+    char **str1 = split_getlin(buffer);
+
+    int enviro = my_strcmp(str1[0], "env\n");
+    int exi = my_strcmp(str1[0], "exit\n");
+    int setenv = my_strcmp(str1[0], "setenv");
 
     if (enviro == 0)
-        my_env(env);
-    else if (setenv == 0)
-        my_setenv(env);
+        my_env(envi);
+    else if (setenv == 0) {
+        my_setenv(envi, str1);
+    }
     else if (exi == 0)
         exit(0);
     else {
-        str1 = split_getlin(buffer);
-        check_command(env, str1);
+        check_command(envi->tab, str1);
     }
 }

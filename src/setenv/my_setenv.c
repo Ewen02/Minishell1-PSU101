@@ -8,15 +8,15 @@
 #define _GNU_SOURCE
 #include "../../include/my_src.h"
 
-void my_setenv(char **env)
+void my_setenv(env_t *envi, char **str)
 {
-    int size = my_tablen(env);
-    char **tab = my_malloc(env);
+    int size = my_tablen(envi->tab);
+    int size2 = my_strlen(str[1]);
+    char **new_tab = my_malloc(envi->tab);
 
-    size_t bufsize = 32;
-    char *add_size = NULL;
-    if (getline(&add_size, &bufsize, stdin) == -1)
-        return;
-    tab[size] = add_size;
-    my_printf("%t", tab);
+    new_tab[size] = my_strdup(str[1]);
+    envi->tab = new_tab;
+    envi->tab[size + 1] = NULL;
+    my_printf("%t", envi->tab);
+    my_printf("str = [%d]", size2);
 }
