@@ -6,7 +6,7 @@
 */
 
 #define _GNU_SOURCE
-#include "../../include/my_src.h"
+#include "my_src.h"
 
 static int count(char **env)
 {
