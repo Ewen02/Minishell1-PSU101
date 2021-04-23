@@ -33,10 +33,10 @@ typedef struct env_s
 
 void my_exit(void);
 char **my_env(env_t *envi);
-void my_unsetenv(void);
+void my_unsetenv(env_t *envi, char **str);
 void my_setenv(env_t *envi, char **str);
 char *my_strdup(char const *src);
-char **my_malloc(char **env);
+char **my_malloc(char **envi, int size);
 int my_tablen(char **env);
 char **check_path(char **env);
 char *check(char **env, char *command);

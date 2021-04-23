@@ -26,7 +26,7 @@ static char **anti_backslach(char **str)
 void my_setenv(env_t *envi, char **str)
 {
     int size = my_tablen(envi->tab);
-    char **new_tab = my_malloc(envi->tab);
+    char **new_tab = my_malloc(envi->tab, size);
 
     new_tab[size] = my_strdup(str[1]);
     envi->tab = new_tab;

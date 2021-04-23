@@ -15,11 +15,14 @@ void diff_bin_cmd(env_t *envi, char *buffer)
     int enviro = my_strcmp(str1[0], "env\n");
     int exi = my_strcmp(str1[0], "exit\n");
     int setenv = my_strcmp(str1[0], "setenv");
+    int unsetenv = my_strcmp(str1[0], "unsetenv");
 
     if (enviro == 0)
         my_env(envi);
     else if (setenv == 0)
         my_setenv(envi, str1);
+    else if (unsetenv == 0)
+        my_unsetenv(envi, str1);
     else if (exi == 0)
         exit(0);
     else {
