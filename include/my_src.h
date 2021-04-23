@@ -31,7 +31,7 @@ typedef struct env_s
     char **tab;
 }env_t;
 
-void my_exit(void);
+void my_exit(char **str);
 char **my_env(env_t *envi);
 void my_unsetenv(env_t *envi, char **str);
 void my_setenv(env_t *envi, char **str);

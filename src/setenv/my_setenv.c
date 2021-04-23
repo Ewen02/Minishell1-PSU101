@@ -50,5 +50,5 @@ void my_setenv(env_t *envi, char **str)
     else if (sizestr == 1)
         my_printf("%t", envi->tab);
     else
-        my_printf("Too many arguments.\n");
+        my_printf("setenv: Too many arguments.\n");
 }
