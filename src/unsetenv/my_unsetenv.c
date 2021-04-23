@@ -7,7 +7,7 @@
 
 #include "my_src.h"
 
-void my_unsetenv(void)
+void my_unsetenv(env_t *envi, char **str)
 {
 
 }
