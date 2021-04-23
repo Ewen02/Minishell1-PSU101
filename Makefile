@@ -15,6 +15,7 @@ SRC =	src/main.c	\
 		src/setenv/my_setenv.c	\
 		src/setenv/my_malloc.c	\
 		src/setenv/my_tablen.c	\
+		src/setenv/my_anti_backslach.c	\
 		src/PATH/check_path.c	\
 		src/PATH/split.c	\
 		src/env/my_env.c 	\

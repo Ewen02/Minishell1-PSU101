@@ -8,29 +8,47 @@
 #define _GNU_SOURCE
 #include "../../include/my_src.h"
 
-static char **anti_backslach2(char **str, int i, int j)
+static int count(char **env)
 {
-    if (str[i][j] == '\n')
-        str[i][j] = '\0';
-    return str;
+    int size = 1;
+
+    for (int i = 1; env[i]; i++)
+        for (; env[i][size]; size++);
+    return (size);
 }
 
-static char **anti_backslach(char **str)
+static char *add_new(char **src, int sizetab)
 {
-    for (int i = 0; str[i]; i++)
-        for (int j = 0; str[i][j]; j++)
-            str = anti_backslach2(str, i, j);
+    int size = count(src);
+    char *str = malloc(sizeof(char) * (size + 1));
+
+    src = anti_backslach(src);
+    if (sizetab == 2)
+        str = my_strcat(src[1], "=");
+    if (sizetab == 3) {
+        str = my_strcat(src[1], "=");
+        str = my_strcat(str, src[2]);
+    }
     return str;
 }
 
 void my_setenv(env_t *envi, char **str)
 {
     int size = my_tablen(envi->tab);
-    char **new_tab = my_malloc(envi->tab, size);
+    int sizestr = my_tablen(str);
+    char **new_tab = NULL;
+    char *new_str = NULL;
 
-    new_tab[size] = my_strdup(str[1]);
-    envi->tab = new_tab;
-    envi->tab[size + 1] = NULL;
-    envi->tab = anti_backslach(envi->tab);
-    my_printf("%t", envi->tab);
+    if (sizestr == 2 || sizestr == 3) {
+        new_tab = my_malloc(envi->tab, size);
+        new_str = add_new(str, sizestr);
+        new_tab[size] = my_strdup(new_str);
+        envi->tab = new_tab;
+        envi->tab[size + 1] = NULL;
+        envi->tab = anti_backslach(envi->tab);
+    }
+    else if (sizestr == 1)
+        my_printf("%t", envi->tab);
+    else
+        my_printf("Too many arguments.\n");
 }
