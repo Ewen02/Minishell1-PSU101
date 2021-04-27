@@ -26,3 +26,4 @@ char *my_strncpy(char *dest, char const *src, int n);
 int my_strncmp(char const *s1, char const *s2, int n);
 char **split(char *str);
 char *my_strcpy(char *dest, char const *src);
+int my_strlentab(char **tab);

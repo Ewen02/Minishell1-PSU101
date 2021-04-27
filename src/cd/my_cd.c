@@ -7,11 +7,24 @@
 
 #include "my_src.h"
 
-void my_cd(char **env)
+static char *anti_backslac(char *str)
 {
-    for (int i = 0; env[i]; i++)
-        printf("%d\n", i);
+    int size = my_strlen(str);
 
+    for (int i = 0; i < size; i++)
+        if (str[i] == '\n')
+            str[i] = '\0';
+    return str;
+}
+
+void my_cd(char **str)
+{
+    int size = my_strlen(str[1]);
+    char *pwd = malloc(sizeof(char) * (size + 2));
+
+    pwd = anti_backslac(str[1]);
+    chdir(pwd);
+}
 /*
 
 Utiliser : chdir(const char *path) -> remplace le répertoire de travail courant du processus appelant par celui indiqué dans le chemin path.
@@ -23,4 +36,3 @@ Gérer : seulement CD -> go to "HOME"
         'cd ../' -> fait -1 dans le path
 
 */
-}
