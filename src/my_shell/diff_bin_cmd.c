@@ -18,6 +18,8 @@ void diff_bin_cmd(env_t *envi, char *buffer)
     int setenv2 = my_strcmp(str1[0], "setenv\n");
     int unsetenv = my_strcmp(str1[0], "unsetenv");
     int unsetenv2 = my_strcmp(str1[0], "unsetenv\n");
+    int cdd = my_strcmp(str1[0], "cd\n");
+    int cdd2 = my_strcmp(str1[0], "cd");
 
     if (enviro == 0)
         my_env(envi);
@@ -27,6 +29,8 @@ void diff_bin_cmd(env_t *envi, char *buffer)
         my_unsetenv(envi, str1);
     else if (exi == 0 || exi2 == 0)
         my_exit(str1);
+    else if (cdd == 0 || cdd2 == 0)
+        my_cd(envi->tab);
     else
         check_command(envi->tab, str1);
 }
