@@ -5,7 +5,7 @@
 ** //
 */
 
-#include "my_src.h"
+#include "../include/my_src.h"
 
 char **my_str_to_tab(char *buffer, char letter)
 {
