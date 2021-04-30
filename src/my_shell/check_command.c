@@ -37,7 +37,7 @@ void check_command(char **env, char **buffer)
 
     if (childPid == 0) {
         if ((execve(real_buffer[0], real_buffer, env)) == -1)
-            my_printf("%s: command not found\n", fail);
+            my_printf("%s: Command not found\n", fail);
         exit(0);
     }
     else if (childPid < 0)
