@@ -7,32 +7,31 @@
 
 #include "my_src.h"
 
-static char *anti_backslac(char *str)
+static char **change_env(env_t *envi, char *str)
 {
-    int size = my_strlen(str);
-
-    for (int i = 0; i < size; i++)
-        if (str[i] == '\n')
-            str[i] = '\0';
-    return str;
+    for (int i = 0; envi->tab[i]; i++)
+        if (my_strncmp(envi->tab[i], "PWD", 3) == 0)
+            envi->tab[i] = my_strdup(str);
+    return envi->tab;
 }
 
-void my_cd(char **str)
+void my_cd(env_t *envi, char **str)
 {
     int size = my_strlen(str[1]);
     char *pwd = malloc(sizeof(char) * (size + 2));
+    char *path = malloc(sizeof(char) * 256);
 
-    pwd = anti_backslac(str[1]);
+    pwd = anti_backn_string(str[1]);
     chdir(pwd);
+    getcwd(path, 256);
+    path = my_strcat("PWD=", path);
+    if (my_strcmp(pwd, "..") == 0 || my_strcmp(pwd, "../") == 0)
+        envi->tab = change_env(envi, path);
+    else
+        envi->tab = change_env(envi, path);
 }
+
 /*
-
-Utiliser : chdir(const char *path) -> remplace le répertoire de travail courant du processus appelant par celui indiqué dans le chemin path.
-           getcwd(char *buf, size_t size) -> copie le chemin d'accès absolu du répertoire de travail courant dans la chaîne pointée par buf, qui est de longueur size.
-
 Gérer : seulement CD -> go to "HOME"
-        CD + path -> go to path
         'cd -' -> return dans le folder avant (print le PATH)
-        'cd ../' -> fait -1 dans le path
-
 */

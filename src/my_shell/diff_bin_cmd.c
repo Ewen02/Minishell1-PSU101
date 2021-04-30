@@ -30,7 +30,7 @@ void diff_bin_cmd(env_t *envi, char *buffer)
     else if (exi == 0 || exi2 == 0)
         my_exit(str1);
     else if (cdd == 0 || cdd2 == 0)
-        my_cd(str1);
+        my_cd(envi, str1);
     else
         check_command(envi->tab, str1);
 }

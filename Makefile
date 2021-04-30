@@ -11,6 +11,7 @@ SRC =	src/main.c	\
 		src/my_shell/new_shell.c	\
 		src/my_shell/diff_bin_cmd.c	\
 		src/cd/my_cd.c	\
+		src/cd/anti_backn_str.c	\
 		src/unsetenv/my_unsetenv.c	\
 		src/setenv/my_setenv.c	\
 		src/setenv/my_malloc.c	\

@@ -15,7 +15,7 @@ static int check_error(int ac)
     return 0;
 }
 
-int main(int ac, char **av, char **env)
+int main(int ac, __attribute__((unused))char **av, char **env)
 {
     if (check_error(ac) != 0)
         return 84;

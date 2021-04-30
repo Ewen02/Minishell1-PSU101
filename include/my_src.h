@@ -46,4 +46,5 @@ char **split_av(char *str);
 int new_shell(char **env);
 void diff_bin_cmd(env_t *envi, char *buffer);
 char **anti_backslach(char **str);
-void my_cd(char **str);
+void my_cd(env_t *envi, char **str);
+char *anti_backn_string(char *str);
