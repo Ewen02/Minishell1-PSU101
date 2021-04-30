@@ -10,6 +10,7 @@
 int my_getnbr(char *str)
 {
     long result = 0, nbr = 0, sig = 0, j = 0, operator = 1;
+
     for (j = 0; str[j] != '\0'; j++)
         if (str[j] == '-')
             sig++;
@@ -19,8 +20,7 @@ int my_getnbr(char *str)
         nbr++;
     for (int i = 0; i < (nbr - 1); i++)
         operator *= 10;
-    for (int i = j; i != (nbr + j); i++)
-    {
+    for (int i = j; i != (nbr + j); i++) {
         result += ((str[i] - '0') * operator);
         operator = operator / 10;
     }
