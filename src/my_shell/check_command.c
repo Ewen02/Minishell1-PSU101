@@ -20,10 +20,12 @@ static char **cpy(char **str, char *result)
 void check_command(char **env, char **buffer)
 {
     int returnStatus;
+    char *fail = my_strdup(buffer[0]);
     char *result = malloc(sizeof(char) * my_strlen(*env));
     char **real_buffer = malloc(sizeof(char *) * my_strlen(*env));
     result = check(env, buffer[0]);
     real_buffer = cpy(buffer, result);
+    fail = anti_backn_string(fail);
 
     for (int i = 0; real_buffer[i]; i++)
         for (int j = 0; real_buffer[i][j] != '\0'; j++)
@@ -35,7 +37,7 @@ void check_command(char **env, char **buffer)
 
     if (childPid == 0) {
         if ((execve(real_buffer[0], real_buffer, env)) == -1)
-            my_printf("Command not found\n");
+            my_printf("%s: command not found\n", fail);
         exit(0);
     }
     else if (childPid < 0)
