@@ -9,11 +9,11 @@ Première partie du projet 42sh (TCSH), on peut executer tout les binaires + bui
 
 <a name="top"></a>
 
-builtin :
+    builtin :
 
-    -cd
-    -env
-    -setenv
-    -unsetenv
-    -exit
-    -pwd
+        -cd
+        -env
+        -setenv
+        -unsetenv
+        -exit
+        -pwd
