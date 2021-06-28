@@ -9,6 +9,8 @@ Première partie du projet 42sh (TCSH), on peut executer tout les binaires + bui
 
 <a name="top"></a>
 
+builtin :
+
     -cd
     -env
     -setenv
